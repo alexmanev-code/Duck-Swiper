@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch"
+    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
+    "build": "npm install && npm run build:css",
+    "postinstall": "npm run build:css"
   },
   "keywords": [
     "express",
@@ -18,7 +20,7 @@
     "javascript",
     "mobile-first"
   ],
-  "author": "Aleksandar Manev",
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
