@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link href="/css/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter antialiased bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-gray-800 text-white p-4 shadow-lg">
+        <nav class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <a href="/" class="text-3xl font-bold mb-2 sm:mb-0 rounded-lg p-2 hover:bg-gray-700 transition-colors duration-200">
+                Duck Swiper
+            </a>
+            <ul class="flex space-x-4">
+                <li>
+                    <a href="/gallery" id="gallery-count" class="text-lg hover:underline p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">Gallery (0)</a>
+                </li>
+                <li>
+                    <a href="/details" class="text-lg hover:underline p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">Swipe</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 py-8 flex-grow flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-bold text-center text-blue-400 mb-8" id="swiper-header">Swipe for a Duck!</h1>
+
+        <div id="loading-indicator" class="text-center text-lg text-blue-300 mb-4 animate-pulse">
+            <p>Fetching a fresh duck...</p>
+        </div>
+
+        <div id="error-message" class="hidden bg-red-800 border border-red-700 text-red-200 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Oops!</strong>
+            <span class="block sm:inline" id="error-text">Could not load the duck image.</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-red-400" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" onclick="document.getElementById('error-message').classList.add('hidden');"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+
+        <section id="duck-swiper-container" class="relative w-full max-w-md bg-gray-700 rounded-xl shadow-lg p-4 flex flex-col items-center justify-center min-h-[400px] sm:min-h-[500px] overflow-hidden">
+            <div id="current-duck-image-wrapper" class="relative w-full h-full max-h-[300px] sm:max-h-[400px] flex items-center justify-center overflow-hidden rounded-lg">
+                <img id="current-duck-image" src="" alt="Random Duck" class="w-full h-full object-contain rounded-lg transition-transform duration-300 transform scale-100">
+                <div id="swipe-overlay" class="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 pointer-events-none rounded-lg">
+                    Swipe
+                </div>
+            </div>
+            <p class="text-xl font-semibold text-blue-300 mt-4">Quack! Your new friend.</p>
+        </section>
+
+        <div class="flex space-x-6 mt-8">
+            <button id="skip-button" class="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+                Skip
+            </button>
+            <button id="like-button" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+                Like
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 p-4 mt-8 text-center shadow-inner">
+        <p>&copy; 2025 Powered by random-d.uk</p>
+    </footer>
+
+    <script src="/js/details.js"></script>
+</body>
+</html>

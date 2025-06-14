@@ -1,0 +1,25 @@
+/* public/css/style.css */
+
+/* Import Tailwind's base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any custom CSS here if absolutely necessary, but prefer Tailwind classes */
+/* For example, a custom scrollbar, or specific animations not easily done with utilities */
+
+/* Ensure smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for aesthetics, but keep functionality */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+/* For Firefox */
+html {
+    scrollbar-width: none; /* remove scrollbar space */
+}
